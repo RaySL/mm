@@ -26,6 +26,11 @@ struct DeltaNabla {
 };
 
 
+/*
+Add initialization with layer sizes
+*/
+
+
 class Network {
 public:
   Network(int layers);
