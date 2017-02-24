@@ -6,7 +6,7 @@
 
 /**
   * Obtain the determinant through Gaussian elimination
-
+  *
   * Time complexity: O(n^3)
 **/
 
