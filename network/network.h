@@ -6,6 +6,7 @@
 #include "matrix/matmul/matscl.h"
 #include "matrix/transpose.h"
 #include "matrix/matadd/matadd.h"
+#include "matrix/matsub/matsub.h"
 #include "matrix/matelm/matelm.h"
 #include "scalar/scalar.h"
 

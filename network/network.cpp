@@ -70,11 +70,15 @@ void Network::updateSection(std::vector<Sample> samples, double rate){
   }
 
   for (int layer = 0; layer < m_layers - 1; layer++){
-    Matrix< Scalar<double> > temp;
-    temp = (-rate) * nabla_bias[layer];
-    m_biases[layer]  = m_biases[layer]  + temp;
-    temp = (-rate) * nabla_weight[layer];
-    m_weights[layer] = m_weights[layer] + temp;
+    /*Matrix< Scalar<double> > temp;
+    temp = rate * nabla_bias[layer];
+    m_biases[layer]  = m_biases[layer]  - temp;
+    temp = rate * nabla_weight[layer];
+    m_weights[layer] = m_weights[layer] - temp;*/
+
+    //Get this to work (add Matrix::operator =(Matrix&) and/or Matrix::operator =(Matrix))
+    //m_biases[layer]  = m_biases[layer]  - rate * nabla_bias[layer];
+    //m_weights[layer] = m_weights[layer] - rate * nabla_weight[layer];
   }
 }
 
