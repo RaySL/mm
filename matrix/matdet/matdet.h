@@ -8,12 +8,7 @@
   * Obtain the determinant through Gaussian elimination
 **/
 
-/*
-Fails (returns -nan instead of 0)
-  1, 1, 1,
-  1, 0, 1,
-  1, 1, 1
-*/
+/* Needs further testing -- may be correct */
 
 template<typename T>
 T determinant(Matrix<T> M){
@@ -40,7 +35,7 @@ T determinant(Matrix<T> M){
         M(i, row) = M(i, column);
         M(i, column) = temp;
       }
-      //std::cout << "Swapped:\n" << M << "\n";
+      std::cout << "Swapped:\n" << M << "\n";
 
       break;
     }
@@ -53,18 +48,20 @@ T determinant(Matrix<T> M){
       if (M(column, row) == 0) break;
 
       T factor = M(column, row) / M(column, column);
+      std::cout << "factor: " << factor << "\n";
 
+      std::cout << "Before:\n" << M << "\n";
       for (int i = column; i < M.columns(); i++){
-        M(i, row) -= factor * M(column, column);
+        M(i, row) -= factor * M(i, column);
       }
-      //std::cout << "Scaled:\n" << M << "\n";
+      std::cout << "Scaled:\n" << M << "\n";
 
-      det *= -1;
+      /*det *= -1;
       for (int i = 0; i < M.columns(); i++){
         T temp = M(i, row);
         M(i, row) = M(i, column);
         M(i, column) = temp;
-      }
+    }*/
       //std::cout << "Swapped:\n" << M << "\n";
     }
   }
