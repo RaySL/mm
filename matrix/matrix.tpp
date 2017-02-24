@@ -1,6 +1,11 @@
 //need comments
 
 template<typename T>
+Matrix<T>::Matrix():
+  Matrix(0, 0)
+{};
+
+template<typename T>
 Matrix<T>::Matrix(int columns, int rows){
   m_columns = columns;
   m_rows = rows;

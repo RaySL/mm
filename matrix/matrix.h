@@ -9,6 +9,7 @@
 template <typename T>
 class Matrix {
 public:
+  Matrix();
   Matrix(int columns, int rows);
   Matrix(int columns, int rows, std::initializer_list<T> elements);
   Matrix(Matrix<T>& M);
