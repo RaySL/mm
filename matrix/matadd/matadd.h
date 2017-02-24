@@ -7,7 +7,7 @@
 **/
 
 template <typename T>
-Matrix<T>& operator + (Matrix<T>& A, Matrix<T>& B) {
+Matrix<T>& operator + (Matrix<T>& A, Matrix<T> B) {
   assert(A.columns() == B.columns() && A.rows() == B.rows());
 
   Matrix<T>& M = (*new Matrix<T>(A.columns(), A.rows()));
