@@ -6,9 +6,9 @@
 
 /**
   * Obtain the determinant through Gaussian elimination
-**/
 
-/* Needs further testing -- may be correct */
+  * Time complexity: O(n^3)
+**/
 
 template<typename T>
 T determinant(Matrix<T> M){
@@ -29,13 +29,12 @@ T determinant(Matrix<T> M){
       //Swapping two rows of a matrix will negate the determinant
       det *= -1;
 
-      //Swap row "row" with row "column"
+      //Swap rows
       for (int i = 0; i < M.columns(); i++){
         T temp = M(i, row);
         M(i, row) = M(i, column);
         M(i, column) = temp;
       }
-      std::cout << "Swapped:\n" << M << "\n";
 
       break;
     }
@@ -43,26 +42,16 @@ T determinant(Matrix<T> M){
     //If all elements below and including the diagonal are zero, the determinant must be zero
     if (allZeros) return 0;
 
+    if (M(column, column) == 0) continue;
 
     for (int row = column + 1; row < M.rows(); row++){
       if (M(column, row) == 0) break;
 
+      //Subtract a scaled version of another row from this one (Does not affect the determinant)
       T factor = M(column, row) / M(column, column);
-      std::cout << "factor: " << factor << "\n";
-
-      std::cout << "Before:\n" << M << "\n";
       for (int i = column; i < M.columns(); i++){
         M(i, row) -= factor * M(i, column);
       }
-      std::cout << "Scaled:\n" << M << "\n";
-
-      /*det *= -1;
-      for (int i = 0; i < M.columns(); i++){
-        T temp = M(i, row);
-        M(i, row) = M(i, column);
-        M(i, column) = temp;
-    }*/
-      //std::cout << "Swapped:\n" << M << "\n";
     }
   }
 
