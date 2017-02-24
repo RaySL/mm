@@ -1,5 +1,7 @@
 #Build files
 *.o
+*.exe
 client
 
-**/*.old.*
+#Old files
+**/*.old*
