@@ -1,5 +1,4 @@
-#ifndef _SCALAR_H_
-#define _SCALAR_H_
+#pragma once
 
 #include <iostream>
 
@@ -22,5 +21,3 @@ private:
 };
 
 #include "scalar.tpp"
-
-#endif /* end of include guard: _SCALAR_H_ */

@@ -1,5 +1,4 @@
-#ifndef _MAT_H_
-#define _MAT_H_
+#pragma once
 
 #include <initializer_list>
 #include <cassert>
@@ -28,5 +27,3 @@ private:
 };
 
 #include "matrix.tpp"
-
-#endif

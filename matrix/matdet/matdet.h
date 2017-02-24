@@ -1,4 +1,7 @@
+#pragma once
+
 #include "matrix/matrix.h"
+#include "matrix/matio/matio.h"
 #include "scalar/scaops/scaops.h"
 
 /**
@@ -37,6 +40,7 @@ T determinant(Matrix<T> M){
         M(i, row) = M(i, column);
         M(i, column) = temp;
       }
+      //std::cout << "Swapped:\n" << M << "\n";
 
       break;
     }
@@ -53,6 +57,7 @@ T determinant(Matrix<T> M){
       for (int i = column; i < M.columns(); i++){
         M(i, row) -= factor * M(column, column);
       }
+      //std::cout << "Scaled:\n" << M << "\n";
 
       det *= -1;
       for (int i = 0; i < M.columns(); i++){
@@ -60,6 +65,7 @@ T determinant(Matrix<T> M){
         M(i, row) = M(i, column);
         M(i, column) = temp;
       }
+      //std::cout << "Swapped:\n" << M << "\n";
     }
   }
 
